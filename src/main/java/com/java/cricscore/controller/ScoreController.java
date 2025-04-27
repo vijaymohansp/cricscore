@@ -21,14 +21,14 @@ public class ScoreController {
 
     @GetMapping("/playerData")
     @ResponseStatus(HttpStatus.CREATED)
-    public List<PlayerData> playData(){
+    public List<PlayerData> allPlayerData(){
         List<PlayerData> playerData = playerRepo.fillPlayerData();
         return playerData;
     }
 
     @PostMapping("/addData")
-    public void addPlayerData(@RequestBody PlayerData playerData){
-        playerService.addPlayerData(playerData);
+    public void addNewPlayerData(@RequestBody PlayerData playerData){
+        playerService.addNewPlayerData(playerData);
     }
 
     @GetMapping("/{playerName}")
@@ -40,12 +40,12 @@ public class ScoreController {
 
     @PutMapping("/updateData")
     public void updateOnePlayerData(@RequestBody PlayerData playerData){
-        playerService.getupdateplayerData(playerData);
+        playerService.updatePlayerData(playerData);
     }
 
     @DeleteMapping("/{playerName}")
     @ResponseStatus(HttpStatus.OK)
-    public void getdeletePlayerData(@PathVariable String playerName){
-        playerService.getDeleteplayerData(playerName);
+    public void deletePlayerData(@PathVariable String playerName){
+        playerService.deleteplayerData(playerName);
     }
 }

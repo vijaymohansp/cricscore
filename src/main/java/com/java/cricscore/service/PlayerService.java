@@ -13,7 +13,7 @@ public class PlayerService {
     @Autowired
     PlayerRepo playerRepo;
 
-    public void addPlayerData(PlayerData playerData){
+    public void addNewPlayerData(PlayerData playerData){
         playerRepo.addNewData(playerData);
     }
 
@@ -27,7 +27,7 @@ public class PlayerService {
         return null;
     }
 
-    public void getupdateplayerData(PlayerData playerData) {
+    public void updatePlayerData(PlayerData playerData) {
         Optional<PlayerData> first = playerRepo.fillPlayerData()
                 .stream()
                 .filter(p -> p.getPlayerName().equals(playerData.getPlayerName())).findFirst();
@@ -43,7 +43,7 @@ public class PlayerService {
         }
     }
 
-    public void getDeleteplayerData(String playerName) {
+    public void deleteplayerData(String playerName) {
         Optional<PlayerData> first = playerRepo.fillPlayerData()
                 .stream().
                 filter(p -> p.getPlayerName().equals(playerName)).findFirst();
